@@ -14,7 +14,7 @@
 		"semi": "off",
 		"arrow-parens": "off",
 		"comma-dangle": "off",
-		"no-console": "warn",
+		"no-console": "off",
 		"require-jsdoc": "off",
 		"no-tabs": 0,
 		"no-trailing-spaces": "off",
