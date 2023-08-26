@@ -5,7 +5,7 @@ class AboutUs extends BaseScreen {
 		super({ title: 'About us' })
 	}
 	render() {
-		return '<div>ABOUT</div>'
+		return '<div>ABOUT US</div>'
 	}
 }
 
