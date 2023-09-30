@@ -1,6 +1,8 @@
+import { $R } from '@/core/rquery/rquery.lib'
 import BaseScreen from '@/core/components/base-screen/base-screen.component'
 import renderService from '@/core/services/render.service'
-import { $R } from '@/core/rquery/rquery.lib'
+
+import { Heading } from '@/components/ui'
 
 import template from './home.template.html'
 import styles from './home.module.scss'
@@ -11,7 +13,15 @@ class Home extends BaseScreen {
 	}
 
 	render() {
-		const element = renderService.htmlToElement(template, [], styles)
+		const element = renderService.htmlToElement(
+			template,
+			[
+				new Heading({
+					title: 'Test',
+				}),
+			],
+			styles,
+		)
 
 		$R(element).find('h1').css('color', 'red')
 
