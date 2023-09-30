@@ -23,7 +23,8 @@
 		"padded-blocks": "off",
 		"prefer-default-export": "off",
 		"no-prototype-builtins": "off",
-		"no-mixed-spaces-and-tabs": "off"
+		"no-mixed-spaces-and-tabs": "off",
+		"no-unused-vars": "warn"
 	},
 	"settings": {
 		"import/resolver": {
