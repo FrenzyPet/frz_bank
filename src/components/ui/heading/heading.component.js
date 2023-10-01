@@ -6,14 +6,14 @@ import template from './heading.template.html'
 import styles from './heading.module.scss'
 
 class Heading extends Child {
-	constructor({ title }) {
+	constructor({ title = '' }) {
 		super()
 		this.title = title
 	}
 	render() {
 		this.element = renderService.htmlToElement(template, [], styles)
 
-		$R(this.element).html(this.title)
+		$R(this.element).text(this.title)
 
 		return this.element
 	}
