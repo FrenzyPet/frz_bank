@@ -1,0 +1,10 @@
+@import 'src/styles/variables.scss';
+
+.logo {
+	> a {
+		color: #fff;
+		font-weight: 600;
+		font-size: 40px;
+		text-decoration: none;
+	}
+}

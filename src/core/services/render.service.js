@@ -23,11 +23,9 @@ class RenderService {
 	}
 
 	/**
-	 *
 	 * @param {HTMLElement} parentElement
 	 * @param {Array} components
 	 */
-
 	#replaceComponentTags(parentElement, components) {
 		const componentTagPattern = /^component-/
 		const allElements = parentElement.getElementsByTagName('*')
@@ -50,7 +48,7 @@ class RenderService {
 					const componentContent =
 						foundComponent instanceof Child
 							? foundComponent.render()
-							: new foundComponent.render()
+							: new foundComponent().render()
 
 					element.replaceWith(componentContent)
 				} else {

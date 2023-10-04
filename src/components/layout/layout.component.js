@@ -22,7 +22,9 @@ class Layout extends Child {
 		const contentContainer = $R(this.element).find('#content')
 		contentContainer.append(this.children)
 
-		mainElement.before(new Header().render()).append(contentContainer.element)
+		mainElement
+			.before(new Header({ router: this.router }).render())
+			.append(contentContainer.element)
 
 		return this.element
 	}

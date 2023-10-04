@@ -6,7 +6,7 @@ import template from './user-item.template.html'
 import styles from './user-item.module.scss'
 
 class UserItem extends Child {
-	constructor({ user, isGray = false, onClick }) {
+	constructor(user, isGray = false, onClick) {
 		super()
 
 		if (!user) throw new Error('User should be passed')
@@ -31,11 +31,14 @@ class UserItem extends Child {
 
 	render() {
 		this.element = renderService.htmlToElement(template, [], styles)
+
 		this.update(this.user)
+
 		$R(this.element).click(this.onClick || this.#preventDefault.bind(this))
 
 		if (!this.onClick) $R(this.element).attr('disabled', '')
 		if (this.isGray) $R(this.element).addClass(styles.gray)
+
 		return this.element
 	}
 }

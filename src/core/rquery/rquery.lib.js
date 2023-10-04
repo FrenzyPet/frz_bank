@@ -1,4 +1,4 @@
-import { formatCardNumber } from '../../utils/format-card-number'
+import { formatCardNumber } from '@/utils/format-card-number'
 
 /**
  * Represent the RQuery class for working with DOM elements.
@@ -207,7 +207,7 @@ class RQuery {
 			throw new Error('Element must be an input with type "number"')
 		}
 
-		this.element.addEventListener('innput', event => {
+		this.element.addEventListener('input', event => {
 			let value = event.target.value.replace(/[^0-9]/g, '')
 			if (limit) value = value.substring(0, limit)
 			event.target.value = value
@@ -230,7 +230,7 @@ class RQuery {
 			throw new Error('Element must be an input with type "text"')
 		}
 
-		this.element.addEventListener('innput', event => {
+		this.element.addEventListener('input', event => {
 			let value = event.target.value.replace(/[^0-9]/g, '')
 			if (limit) value = value.substring(0, limit)
 			event.target.value = formatCardNumber(value)

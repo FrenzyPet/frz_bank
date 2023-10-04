@@ -6,6 +6,7 @@ import { Heading, UserItem } from '@/components/ui'
 
 import template from './home.template.html'
 import styles from './home.module.scss'
+import Field from '../../ui/field/field.component'
 
 class Home extends BaseScreen {
 	constructor() {
@@ -13,25 +14,9 @@ class Home extends BaseScreen {
 	}
 
 	render() {
-		const element = renderService.htmlToElement(
-			template,
-			[
-				new Heading({
-					title: 'Test',
-				}),
-				new UserItem({
-					user: {
-						name: 'Max',
-						avatarPath: 'asdas',
-					},
-					isGray: false,
-					onClick: () => null,
-				}),
-			],
-			styles,
-		)
+		const element = renderService.htmlToElement(template, [], styles)
 
-		$R(element).find('h1').css('color', 'red')
+		// $R(element).find('h1').css('color', 'red')
 
 		return element
 	}

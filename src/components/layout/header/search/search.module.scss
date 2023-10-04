@@ -1,0 +1,53 @@
+@import 'src/styles/variables.scss';
+
+.search {
+	position: relative;
+	display: flex;
+	align-items: center;
+	padding: 12px 10px;
+	background-color: $bg-block;
+	border-radius: $radius;
+
+	&:focus-within {
+		> svg {
+			color: $white;
+		}
+	}
+
+	> svg {
+		width: 20px;
+
+		height: 20px;
+		margin-right: 7px;
+		color: $text-gray;
+		transition: color 300ms ease-in-out;
+	}
+
+	> .results {
+		position: absolute;
+		width: 100%;
+		top: calc(100% + 0.7rem);
+		right: 0;
+		animation: showIn 0.4s;
+		z-index: 3;
+
+		> button {
+			width: 100%;
+			margin-bottom: 0.7rem;
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
+		}
+
+		.item {
+			opacity: 0;
+			transform: translateY(-20px);
+			transition:
+				opacity 300ms,
+				transform 300ms;
+
+			&.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	}
+}
