@@ -2,6 +2,7 @@ import renderService from '@/core/services/render.service'
 import { $R } from '@/core/rquery/rquery.lib'
 
 import Header from './header/header.component'
+import Notification from './notification/notification.component'
 
 import template from './layout.template.html'
 import styles from './layout.module.scss'
@@ -15,7 +16,7 @@ class Layout extends Child {
 	}
 
 	render() {
-		this.element = renderService.htmlToElement(template, [], styles)
+		this.element = renderService.htmlToElement(template, [Notification], styles)
 
 		const mainElement = $R(this.element).find('main')
 
