@@ -1,4 +1,4 @@
-import { ACCESS_TOKEN_KEY, USER_STORAGE_KEY } from '@/constants/auth.const'
+import { ACCESS_TOKEN_KEY, USER_STORAGE_KEY } from '@/constants/auth.const.ts'
 import { StorageService } from '../services/storage.service'
 
 /**

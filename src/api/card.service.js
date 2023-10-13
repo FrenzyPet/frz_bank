@@ -1,12 +1,13 @@
 import { redQuery } from '@/core/red-query/red-query.lib'
 import NotificationService from '@/core/services/notification.service'
 import { formatCardNumber } from '../utils/format-card-number'
+import Store from '../core/store/store'
 
 export class CardService {
 	#BASE_URL = '/cards'
 
 	constructor() {
-		//store
+		this.store = Store.getInstance()
 		this.notificationService = new NotificationService()
 	}
 
@@ -56,8 +57,8 @@ export class CardService {
 			method: 'PATCH',
 			body: {
 				amount: +amount,
-				// formatCardNumber: this.store.user.card.number,
-				// toCardNumber
+				formatCardNumber: this.store.user.card.number,
+				toCardNumber,
 			},
 			onSuccess: () => {
 				this.notificationService.show(

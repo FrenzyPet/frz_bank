@@ -1,4 +1,4 @@
-import { ACCESS_TOKEN_KEY } from '@/constants/auth.const'
+import { ACCESS_TOKEN_KEY } from '@/constants/auth.const.ts'
 import { SERVER_URL } from '../../config/url.config'
 import { StorageService } from '../services/storage.service'
 import { extractErrorMessage } from './extract-error-message'
