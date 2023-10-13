@@ -1,12 +1,15 @@
 import { $R } from '@/core/rquery/rquery.lib'
 import renderService from '@/core/services/render.service'
+import formService from '@/core/services/form.service'
 import { AuthService } from '@/api/auth.service'
+import { redQuery } from '@/core/red-query/red-query.lib'
 
 import BaseScreen from '@/core/components/base-screen/base-screen.component'
 import { Field, Button } from '@/components/ui'
 
 import template from './auth.template.html'
 import styles from './auth.module.scss'
+import validationService from '@/core/services/validation.service'
 
 export class Auth extends BaseScreen {
 	#isTypeLogin = true
@@ -16,8 +19,28 @@ export class Auth extends BaseScreen {
 		this.authService = new AuthService()
 	}
 
+	#validateFields(formValues) {
+		const emailLabel = $R(this.element).find('label:first-child')
+		const passwordLabel = $R(this.element).find('label:last-child')
+
+		if (!formValues.email) {
+			validationService.showError(emailLabel)
+		}
+
+		if (!formValues.password) {
+			validationService.showError(passwordLabel)
+		}
+
+		return formValues.email && formValues.password
+	}
+
 	#handleSubmit = evt => {
-		console.log(evt.target)
+		const formValues = formService.getFormValues(evt.target)
+		if (!this.#validateFields(formValues)) {
+			return
+		} else {
+			redQuery()
+		}
 	}
 
 	#changeFormType = evt => {
