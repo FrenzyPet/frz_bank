@@ -143,6 +143,26 @@ class RQuery {
 	}
 
 	/**
+	 * Shows the selected element by removing the 'display' style property.
+	 * @returns {RQuery} The current RQuery Instance for chaining.
+	 */
+
+	show() {
+		this.element.style.removeProperty('display')
+		return this
+	}
+
+	/**
+	 * Hides the selected element by setting its display style to 'none'
+	 * @returns {RQuery} The current RQuery Instance for chaining.
+	 */
+
+	hide() {
+		this.element.style.display = 'none'
+		return this
+	}
+
+	/**
 	 * Set or get the value of attribute on the selected element.
 	 * @param {string} attributeName - The name of attribute to set or get.
 	 * @param {string} [value] - The value to set for attribute. If not provided, the current value of attribute will be return.
