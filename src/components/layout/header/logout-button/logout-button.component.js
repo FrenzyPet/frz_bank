@@ -1,7 +1,7 @@
 import { $R } from '@/core/rquery/rquery.lib'
 import Child from '@/core/components/child/child.component'
 import renderService from '@/core/services/render.service'
-import Store from '@/core/store/store'
+import { Store } from '@/core/store/store'
 
 import template from './logout-button.template.html'
 import styles from './logout-button.module.scss'

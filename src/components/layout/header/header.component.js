@@ -7,7 +7,7 @@ import { UserItem } from '@/components/ui'
 import Logo from './logo/logo.component'
 import LogoutButton from './logout-button/logout-button.component'
 import Search from './search/search.component'
-import Store from '@/core/store/store'
+import { Store } from '@/core/store/store'
 
 import template from './header.template.html'
 import styles from './header.module.scss'

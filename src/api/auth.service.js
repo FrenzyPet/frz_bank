@@ -1,6 +1,6 @@
 import { redQuery } from '@/core/red-query/red-query.lib'
-import NotificationService from '@/core/services/notification.service'
-import Store from '@/core/store/store'
+import { NotificationService } from '@/core/services/notification.service'
+import { Store } from '@/core/store/store'
 
 export class AuthService {
 	#BASE_URL = '/auth'
