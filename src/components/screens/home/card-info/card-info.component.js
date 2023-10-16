@@ -10,6 +10,7 @@ import { CardService } from '@/api/card.service'
 
 import styles from './card-info.module.scss'
 import template from './card-info.template.html'
+import { BALANCE_UPDATED } from '@/constants/event.const'
 
 const CODE = '*****'
 
@@ -22,6 +23,19 @@ export class CardInfo extends Child {
 		console.log('STORE', this.store.state)
 
 		this.element = renderService.htmlToElement(template, [], styles)
+		this.#addListeners()
+	}
+
+	#addListeners() {
+		document.addEventListener(BALANCE_UPDATED, this.#onBalanceUpdated)
+	}
+
+	#removeListeners() {
+		document.removeEventListener(BALANCE_UPDATED, this.#onBalanceUpdated)
+	}
+
+	#onBalanceUpdated = () => {
+		this.fetchData()
 	}
 
 	#copyCardNumber(e) {
@@ -38,6 +52,10 @@ export class CardInfo extends Child {
 		text === CODE
 			? cardCvcElement.text(this.card.cvc)
 			: cardCvcElement.text(CODE)
+	}
+
+	destroy() {
+		this.#removeListeners()
 	}
 
 	fillElements() {

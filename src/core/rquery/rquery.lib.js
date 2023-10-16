@@ -158,6 +158,15 @@ class RQuery {
 		return this
 	}
 
+	inputValue(newValue) {
+		if (typeof newValue === 'undefined') {
+			return this.element.value
+		} else {
+			this.element.value = newValue
+			return this
+		}
+	}
+
 	/**
 	 * Set attributes and event listeners for an input element.
 	 * @param {object} options - An object containing input options.
@@ -309,6 +318,15 @@ class RQuery {
 			this.element.setAttribute(attributeName, value)
 			return this
 		}
+	}
+
+	removeAttr(attributeName) {
+		if (typeof attributeName !== 'string') {
+			throw new Error('Attribute name must be a string')
+		}
+
+		this.element.removeAttribute(attributeName)
+		return this
 	}
 }
 
