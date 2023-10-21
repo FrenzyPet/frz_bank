@@ -38,6 +38,10 @@ export class CardInfo extends Child {
 		this.fetchData()
 	}
 
+	destroy() {
+		this.#removeListeners()
+	}
+
 	#copyCardNumber(e) {
 		navigator.clipboard.writeText(e.target.innerText).then(() => {
 			e.target.innerText = 'Card number copied!'
@@ -52,10 +56,6 @@ export class CardInfo extends Child {
 		text === CODE
 			? cardCvcElement.text(this.card.cvc)
 			: cardCvcElement.text(CODE)
-	}
-
-	destroy() {
-		this.#removeListeners()
 	}
 
 	fillElements() {
