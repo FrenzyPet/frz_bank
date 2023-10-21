@@ -74,7 +74,7 @@ export async function redQuery({
 		const errorMessage = extractErrorMessage(errorData)
 		console.log(errorMessage)
 
-		if (errorMessage) {
+		if (onError) {
 			onError(errorMessage)
 		}
 	} finally {
