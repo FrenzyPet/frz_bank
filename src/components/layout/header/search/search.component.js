@@ -7,6 +7,8 @@ import template from './search.template.html'
 import styles from './search.module.scss'
 import { UserItem } from '@/components/ui'
 import { debounce } from '@/utils/debounce.utils'
+import { formatCardNumber } from '../../../../utils/format-card-number.utils'
+import { TRANSFER_FIELD_SELECTOR } from '../../../screens/home/contacts/transfer-field/transfer-field.component'
 
 class Search extends Child {
 	constructor() {
@@ -27,9 +29,12 @@ class Search extends Child {
 			searchResultElement.html('')
 
 			users.forEach((user, index) => {
-				const userItem = new UserItem(user, true, () =>
-					searchResultElement.html(''),
-				).render()
+				const userItem = new UserItem(user, true, () => {
+					$R(TRANSFER_FIELD_SELECTOR).inputValue(
+						formatCardNumber(user.card.number),
+					)
+					searchResultElement.html('')
+				}).render()
 
 				$R(userItem)
 					.addClass(styles.item)
