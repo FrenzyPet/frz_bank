@@ -63,8 +63,9 @@ class Contacts extends Child {
 				.find('#contacts-list')
 				.html(new Loader({ width: 30, height: 30 }).render().outerHTML)
 
-			this.fetchData()
+			setTimeout(() => this.fetchData(), 500)
 		}
+
 		return this.element
 	}
 }

@@ -106,7 +106,7 @@ class Statistics extends Child {
 	render() {
 		if (this.store.user) {
 			$R(this.element).append(new Loader({ width: 30, height: 30 }).render())
-			this.fetchData()
+			setTimeout(() => this.fetchData(), 500)
 		}
 
 		return this.element
